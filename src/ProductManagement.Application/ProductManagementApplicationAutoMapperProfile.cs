@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 
+using ProductManagement.Products;
+
 namespace ProductManagement;
 
 public class ProductManagementApplicationAutoMapperProfile : Profile
