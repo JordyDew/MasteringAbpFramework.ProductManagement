@@ -2,9 +2,8 @@
 using ProductManagement.Products;
 
 using System;
-using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
@@ -19,11 +18,11 @@ public class ProductManagementDataSeedContributor
     private readonly IRepository<Product, Guid> _productRepository;
 
     public ProductManagementDataSeedContributor(
-        IRepository<Category, Guid> categoryRepository,
-        IRepository<Product, Guid> productRepository)
+       IRepository<Category, Guid> categoryRepository,
+       IRepository<Product, Guid> productRepository)
     {
-        _productRepository = _productRepository;
-        _categoryRepository = _categoryRepository;
+        _productRepository = productRepository;
+        _categoryRepository = categoryRepository;
     }
 
     public async Task SeedAsync(DataSeedContext context)
