@@ -1,4 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+
+using ProductManagement.Categories;
+using ProductManagement.Products;
+
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -24,6 +28,8 @@ public class ProductManagementDbContext :
     ITenantManagementDbContext
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Product> Products { get; set; }
 
     #region Entities from the modules
 
