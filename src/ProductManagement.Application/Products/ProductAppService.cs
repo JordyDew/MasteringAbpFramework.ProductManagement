@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
 
 using Volo.Abp.Application.Dtos;
@@ -25,7 +28,8 @@ public class ProductAppService
             .OrderBy(input.Sorting ?? nameof(Product.Name));
 
         var products = await AsyncExecuter.ToListAsync(queryable);
-        var totalCount  =await AsyncExecuter.CountAsync(_productRepository);
+        var totalCount = await _productRepository.CountAsync();
+
         return new PagedResultDto<ProductDto>(
                 totalCount,
                 ObjectMapper.Map<List<Product>, List<ProductDto>>(products));
