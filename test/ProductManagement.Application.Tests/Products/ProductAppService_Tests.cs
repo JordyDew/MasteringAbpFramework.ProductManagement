@@ -24,7 +24,7 @@ public class ProductAppService_Tests
         //arrange
         output.TotalCount.ShouldBe(3);
         output.Items.ShouldContain(
-    x => x.Name.Contains("Acme Monochrome Laser                     Printer")
+    x => x.Name.Contains("Acme Monochrome Laser Printer")
 );
 
     }
